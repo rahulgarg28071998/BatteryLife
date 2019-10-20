@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ <head>
+<title>Reusable Form Demo</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head><body>
+<div class="container">
+<h2>Mobile Web Form</h2>
+<form action="" method="post" role="form">
+
+<div class="form-group">
+<label for="name">Model Name:</label>
+<select class="form-control" id="name" name = "name" placeholder = "What is the name of the phone">
+  <option value="Audi">Audi</option>
+  <option value="BMW">BMW</option>
+  <option value="Mercedes">Mercedes</option>
+  <option value="Volvo">Volvo</option>
+</select>
+
+<label for="battery">Battery:</label>
+<input type="text" class="form-control" id="battery" name="battery" placeholder="Enter battery: ">
+
+<label for="chargingstatus">Charging/Discharging:</label>
+<select class="form-control" id="chargingstatus" name = "chargingstatus" placeholder = "Charging or Discharging">
+  <option value="Charging">Charging</option>
+  <option value="Discharging">Discharging</option>
+</select>
+<label for="buytime">Buy time:</label>
+<input type="text" class="form-control" id="buytime" name="buytime" placeholder="Enter buytime: ">
+<!-- <label for="voltage">Buy voltage:</label>
+<input type="text" class="form-control" id="voltage" name="voltage" placeholder="Enter voltage: ">
+<label for="current">Buy current:</label>
+<input type="text" class="form-control" id="current" name="current" placeholder="Enter current: ">
+<label for="temperature">Buy temperature:</label>
+<input type="text" class="form-control" id="temperature" name="temperature" placeholder="Enter temperature: "> -->
+
+</div>
+<button type="submit" class="btn btn-success">Sign Up</button>
+</form>{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+
+{% for message in messages %}
+{% if "Error" not in message[1]: %}
+<div class="alert alert-info">
+   <strong>Success! </strong> { { message[1] }}</div>
+{% endif %}
+
+{% if "Error" in message[1]: %}
+<div class="alert alert-warning">
+   { { message[1] }}</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+</div>
+</body>
+</html>
